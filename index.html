@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Johnny Celario — Go-To-Market Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d12;
+      --card-bg: #13131c;
+      --border: rgba(255,255,255,0.07);
+      --cyan: #05ddfa;
+      --purple: #8c31e8;
+      --teal: #2d9ca8;
+      --indigo: #5b63d6;
+      --text: #eeedf7;
+      --muted: #9e9baf;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background-color: var(--bg);
+      background-image: url('assets/images/bg.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* Overlay to darken bg image */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 18, 0.82);
+      z-index: 0;
+    }
+
+    .site-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+      padding-bottom: 64px;
+    }
+
+    .avatar-wrap {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 3px solid var(--cyan);
+      overflow: hidden;
+      box-shadow: 0 0 32px rgba(5, 221, 250, 0.3);
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .name {
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero h1 .sub {
+      display: block;
+      font-size: 0.55em;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+      margin-top: 6px;
+    }
+
+    .hero .tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV PILLS ────────────────────────────────────── */
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform 0.18s, box-shadow 0.18s, opacity 0.18s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .pill:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .pill-projects { background: var(--indigo); color: #fff; }
+    .pill-websites { background: var(--teal); color: #fff; }
+    .pill-meeting  { background: var(--purple); color: #fff; }
+    .pill-resume   { background: rgba(255,255,255,0.1); color: var(--text); border: 1px solid var(--border); }
+    .pill-linkedin { background: #0a66c2; color: #fff; }
+    .pill-email    { background: rgba(255,255,255,0.08); color: var(--text); border: 1px solid var(--border); }
+
+    /* ── SECTION HEADERS ──────────────────────────────── */
+    .section { padding-top: 72px; }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section-title .accent { color: var(--cyan); }
+
+    /* ── CARDS ────────────────────────────────────────── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(5, 221, 250, 0.12);
+      border-color: rgba(5, 221, 250, 0.25);
+    }
+
+    .card-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 18px 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 2px;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: auto;
+      padding-top: 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--cyan);
+    }
+
+    .card-cta svg { flex-shrink: 0; }
+
+    /* card with no link (no cta) */
+    .card-no-link { cursor: default; }
+    .card-no-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(140, 49, 232, 0.1);
+      border-color: rgba(140, 49, 232, 0.2);
+    }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    .footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .footer p strong { color: var(--text); }
+
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 22px;
+      border-radius: 50px;
+      background: #0a66c2;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.18s, opacity 0.18s;
+    }
+
+    .footer-link:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .footer-made {
+      font-size: 0.75rem;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    @media (max-width: 600px) {
+      .cards { grid-template-columns: 1fr; }
+      .site-wrap { padding: 40px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrap">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="avatar-wrap">
+        <img src="assets/images/image01.jpg" alt="Johnny Celario — That's me! Nice hair huh?" />
+      </div>
+
+      <h1>
+        Hi, I'm <span class="name">Johnny Celario.</span>
+        <span class="sub">(The) Go-To-Market Engineer <strong>you're looking for.</strong></span>
+      </h1>
+
+      <p class="tagline">
+        I've built production-grade GTM automations that replace a whole marketing team.
+      </p>
+
+      <nav class="nav-pills">
+        <a href="#projects-page" class="pill pill-projects">
+          <!-- Buffer icon -->
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          My Projects
+        </a>
+        <a href="#websites-page" class="pill pill-websites">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          My Websites
+        </a>
+        <a href="https://calendly.com/celariojuanignacio" target="_blank" rel="noopener" class="pill pill-meeting">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69l3-.07a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.57-1.57a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Book a Meeting with Me
+        </a>
+        <a href="https://drive.google.com/file/d/1hazP1FaaWNX4HCVlSyHwiKnX15jecf2P/view?usp=sharing" target="_blank" rel="noopener" class="pill pill-resume">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          My Resume
+        </a>
+        <a href="https://www.linkedin.com/in/juan-celario/" target="_blank" rel="noopener" class="pill pill-linkedin">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:celariojuanignacio@gmail.com" class="pill pill-email">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+      </nav>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects-page">
+      <h2 class="section-title"><span class="accent">◈</span> My Projects</h2>
+
+      <div class="cards">
+
+        <a class="card" href="https://docs.google.com/document/d/1LWYgGZ1ID7iTryUfHZZiTDCeZj82jr-HN8YyN_3zVB8/edit?usp=sharing" target="_blank" rel="noopener">
+          <img class="card-img" src="assets/images/image09.jpg" alt="MCP Servers Blog Maker" />
+          <div class="card-body">
+            <span class="card-label">MCP Servers</span>
+            <p class="card-title">Blog Maker</p>
+            <p class="card-desc">The workflow that replaced a whole <strong>marketing</strong> team.</p>
+            <span class="card-cta">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </a>
+
+        <a class="card" href="https://docs.google.com/document/d/1kEeNU1sZlCZaNWjNstUrdioDwuEVdCjTDBnRyAZxz7Y/edit?usp=sharing" target="_blank" rel="noopener">
+          <img class="card-img" src="assets/images/image03.jpg" alt="Amazon Affiliate Marketing Automation" />
+          <div class="card-body">
+            <span class="card-label">Make.com</span>
+            <p class="card-title">Amazon Affiliate Marketing Automation</p>
+            <p class="card-desc">Everything you need to get started in the Affiliate Marketing Business, <strong>like a pro.</strong></p>
+            <span class="card-cta">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </a>
+
+        <a class="card" href="https://docs.google.com/document/d/1AG_24DJfGigWgUY4iughagytECXVqBQtBoOPWKFLkuM/edit?usp=sharing" target="_blank" rel="noopener">
+          <img class="card-img" src="assets/images/image06.jpg" alt="EZ Reddit Lead Gen" />
+          <div class="card-body">
+            <span class="card-label">n8n</span>
+            <p class="card-title">EZ Reddit Lead Gen</p>
+            <p class="card-desc">This is how to become big on <strong>Reddit</strong> and get more <strong>leads</strong> into your <strong>business.</strong></p>
+            <span class="card-cta">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </a>
+
+        <a class="card" href="https://docs.google.com/document/d/1l5EFwZW8I1y58f674hO7Cmf-xXmE2OSNA4N960L633k/edit?usp=sharing" target="_blank" rel="noopener">
+          <img class="card-img" src="assets/images/image08.jpg" alt="AI-Powered Lead Enrichment Researcher" />
+          <div class="card-body">
+            <span class="card-label">n8n</span>
+            <p class="card-title">AI-Powered Lead Enrichment Researcher</p>
+            <p class="card-desc">Find <strong>everything you need to know</strong> about your leads, with the power of <strong>Perplexity.</strong></p>
+            <span class="card-cta">View Project <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </a>
+
+        <div class="card card-no-link">
+          <img class="card-img" src="assets/images/image04.jpg" alt="Client Satisfaction Early Warning System" />
+          <div class="card-body">
+            <span class="card-label">n8n</span>
+            <p class="card-title">The Client Satisfaction Early Warning System</p>
+            <p class="card-desc">An automated business intelligence workflow that <strong>proactively monitors</strong> client sentiment and sends dissatisfaction alerts before clients churn.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WEBSITES -->
+    <section class="section" id="websites-page">
+      <h2 class="section-title"><span class="accent">◈</span> My Websites</h2>
+
+      <div class="cards">
+
+        <a class="card" href="https://eightx.co/" target="_blank" rel="noopener">
+          <img class="card-img" src="assets/images/image07.jpg" alt="Eightx" />
+          <div class="card-body">
+            <span class="card-label">WordPress</span>
+            <p class="card-title">Eightx</p>
+            <p class="card-desc">eightx.co</p>
+            <span class="card-cta">Visit Site <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </a>
+
+        <a class="card" href="https://tranquilwick.com/" target="_blank" rel="noopener">
+          <img class="card-img" src="assets/images/image02.jpg" alt="TranquiWick" />
+          <div class="card-body">
+            <span class="card-label">WordPress</span>
+            <p class="card-title">TranquiWick</p>
+            <p class="card-desc">tranquilwick.com</p>
+            <span class="card-cta">Visit Site <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>Got any questions? Interested in a custom project?<br />Don't hesitate to <strong>contact me!</strong></p>
+      <a class="footer-link" href="https://www.linkedin.com/in/juan-celario/" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        Connect on LinkedIn
+      </a>
+      <p class="footer-made">Made with ♥ — Johnny Celario</p>
+    </footer>
+
+  </div>
+</body>
+</html>
