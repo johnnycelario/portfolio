@@ -1,6 +1,8 @@
 import Image from "next/image";
 import AnimatedBackgroundLines from "@/components/ui/animated-background-lines";
 
+const BASE = "/portfolio";
+
 export default function Home() {
   return (
     <main
@@ -11,7 +13,7 @@ export default function Home() {
       <div
         className="fixed inset-0 z-0"
         style={{
-          backgroundImage: "url('/assets/images/bg.jpg')",
+          backgroundImage: `url('${BASE}/assets/images/bg.jpg')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -28,7 +30,7 @@ export default function Home() {
             style={{ border: "3px solid #05ddfa", boxShadow: "0 0 32px rgba(5,221,250,0.3)" }}
           >
             <Image
-              src="/assets/images/image01.jpg"
+              src={`${BASE}/assets/images/image01.jpg`}
               alt="Johnny Celario"
               width={130}
               height={130}
@@ -126,34 +128,34 @@ export default function Home() {
           >
             <ProjectCard
               href="https://docs.google.com/document/d/1LWYgGZ1ID7iTryUfHZZiTDCeZj82jr-HN8YyN_3zVB8/edit?usp=sharing"
-              img="/assets/images/image09.jpg"
+              img={`${BASE}/assets/images/image09.jpg`}
               label="MCP Servers"
               title="Blog Maker"
               desc={<>The workflow that replaced a whole <strong>marketing</strong> team.</>}
             />
             <ProjectCard
               href="https://docs.google.com/document/d/1kEeNU1sZlCZaNWjNstUrdioDwuEVdCjTDBnRyAZxz7Y/edit?usp=sharing"
-              img="/assets/images/image03.jpg"
+              img={`${BASE}/assets/images/image03.jpg`}
               label="Make.com"
               title="Amazon Affiliate Marketing Automation"
               desc={<>Everything you need to get started in the Affiliate Marketing Business, <strong>like a pro.</strong></>}
             />
             <ProjectCard
               href="https://docs.google.com/document/d/1AG_24DJfGigWgUY4iughagytECXVqBQtBoOPWKFLkuM/edit?usp=sharing"
-              img="/assets/images/image06.jpg"
+              img={`${BASE}/assets/images/image06.jpg`}
               label="n8n"
               title="EZ Reddit Lead Gen"
               desc={<>This is how to become big on <strong>Reddit</strong> and get more <strong>leads</strong> into your <strong>business.</strong></>}
             />
             <ProjectCard
               href="https://docs.google.com/document/d/1l5EFwZW8I1y58f674hO7Cmf-xXmE2OSNA4N960L633k/edit?usp=sharing"
-              img="/assets/images/image08.jpg"
+              img={`${BASE}/assets/images/image08.jpg`}
               label="n8n"
               title="AI-Powered Lead Enrichment Researcher"
               desc={<>Find <strong>everything you need to know</strong> about your leads, with the power of <strong>Perplexity.</strong></>}
             />
             <ProjectCard
-              img="/assets/images/image04.jpg"
+              img={`${BASE}/assets/images/image04.jpg`}
               label="n8n"
               title="The Client Satisfaction Early Warning System"
               desc={
@@ -181,7 +183,7 @@ export default function Home() {
           >
             <ProjectCard
               href="https://eightx.co/"
-              img="/assets/images/image07.jpg"
+              img={`${BASE}/assets/images/image07.jpg`}
               label="WordPress"
               title="Eightx"
               desc="eightx.co"
@@ -189,7 +191,7 @@ export default function Home() {
             />
             <ProjectCard
               href="https://tranquilwick.com/"
-              img="/assets/images/image02.jpg"
+              img={`${BASE}/assets/images/image02.jpg`}
               label="WordPress"
               title="TranquiWick"
               desc="tranquilwick.com"
