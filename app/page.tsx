@@ -88,28 +88,26 @@ export default function Home() {
             I&apos;ve built production-grade GTM automations that replace a whole marketing team.
           </p>
 
-          {/* Nav Pills — pyramid layout */}
-          <nav className="flex flex-col items-center gap-2.5 mt-2">
-            {/* Row 1 — top of pyramid */}
-            <div className="flex justify-center">
-              <a
-                href="https://calendly.com/celariojuanignacio"
-                target="_blank"
-                rel="noopener"
-                className="pill"
-                style={{ background: ORANGE, color: "#000" }}
-              >
-                <PillIcon d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69l3-.07a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.57-1.57a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                Book a Meeting with Me
-              </a>
-            </div>
+          {/* Nav Pills — pyramid on desktop, stacked on mobile */}
+          <nav className="flex flex-col items-center gap-2.5 mt-2 w-full max-w-sm sm:max-w-none">
+            {/* Row 1 */}
+            <a
+              href="https://calendly.com/celariojuanignacio"
+              target="_blank"
+              rel="noopener"
+              className="pill w-full sm:w-auto justify-center"
+              style={{ background: ORANGE, color: "#000" }}
+            >
+              <PillIcon d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69l3-.07a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.57-1.57a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+              Book a Meeting with Me
+            </a>
             {/* Row 2 */}
-            <div className="flex justify-center gap-2.5">
+            <div className="flex justify-center gap-2.5 w-full sm:w-auto">
               <a
                 href="https://www.linkedin.com/in/juan-celario/"
                 target="_blank"
                 rel="noopener"
-                className="pill"
+                className="pill flex-1 sm:flex-none justify-center"
                 style={{ background: "#0a66c2", color: "#fff" }}
               >
                 <LinkedInIcon />
@@ -117,20 +115,20 @@ export default function Home() {
               </a>
               <a
                 href="mailto:celariojuanignacio@gmail.com"
-                className="pill"
+                className="pill flex-1 sm:flex-none justify-center"
                 style={{ background: "rgba(255,255,255,0.08)", color: "#eeedf7", border: "1px solid rgba(255,255,255,0.12)" }}
               >
                 <PillIcon d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6" />
                 Email
               </a>
             </div>
-            {/* Row 3 — base of pyramid */}
-            <div className="flex justify-center gap-2.5">
-              <a href="#projects" className="pill" style={{ background: "rgba(255,149,0,0.15)", color: ORANGE, border: `1px solid rgba(255,149,0,0.3)` }}>
+            {/* Row 3 */}
+            <div className="flex flex-wrap justify-center gap-2.5 w-full sm:w-auto">
+              <a href="#projects" className="pill flex-1 sm:flex-none justify-center" style={{ background: "rgba(255,149,0,0.15)", color: ORANGE, border: `1px solid rgba(255,149,0,0.3)` }}>
                 <PillIcon d="M3 3h18v18H3zM9 9h6M9 12h6M9 15h4" />
                 My Projects
               </a>
-              <a href="#websites" className="pill" style={{ background: "rgba(255,215,0,0.12)", color: GOLD, border: `1px solid rgba(255,215,0,0.25)` }}>
+              <a href="#websites" className="pill flex-1 sm:flex-none justify-center" style={{ background: "rgba(255,215,0,0.12)", color: GOLD, border: `1px solid rgba(255,215,0,0.25)` }}>
                 <PillIcon d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zM2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z" />
                 My Websites
               </a>
@@ -138,7 +136,7 @@ export default function Home() {
                 href="https://drive.google.com/file/d/1hazP1FaaWNX4HCVlSyHwiKnX15jecf2P/view?usp=sharing"
                 target="_blank"
                 rel="noopener"
-                className="pill"
+                className="pill flex-1 sm:flex-none justify-center"
                 style={{ background: "rgba(255,255,255,0.08)", color: "#eeedf7", border: "1px solid rgba(255,255,255,0.12)" }}
               >
                 <PillIcon d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8" />
