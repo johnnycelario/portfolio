@@ -99,7 +99,7 @@ export default function Home() {
               style={{ background: ORANGE, color: "#000" }}
             >
               <PillIcon d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69l3-.07a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.57-1.57a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-              Book a Meeting with Me
+              Book a Meeting
             </a>
             {/* Row 2 */}
             <div className="flex justify-center gap-2.5 w-full sm:w-auto">
