@@ -241,10 +241,10 @@ export default function Home() {
         .pill {
           display: inline-flex;
           align-items: center;
-          gap: 7px;
-          padding: 9px 18px;
+          gap: 9px;
+          padding: 11px 22px;
           border-radius: 50px;
-          font-size: 0.85rem;
+          font-size: 1.06rem;
           font-weight: 500;
           text-decoration: none;
           transition: transform 0.18s, box-shadow 0.18s, opacity 0.18s;
